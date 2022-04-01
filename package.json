@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com/ebombo-components"
   },
   "version": "0.1.0",
-  "description": "A simple template for a custom React component library",
+  "description": "Catalog of Ebombo Components UI and Non-UI",
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
@@ -12,7 +12,7 @@
     "build-storybook": "build-storybook",
     "prepare": "npm run rollup"
   },
-  "author": "YOUR_NAME",
+  "author": "anargu",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",

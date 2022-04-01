@@ -38,7 +38,7 @@ const Image = (props : ImageProps) => {
       ...imgStyle
     }}
     loading="lazy"
-    className={`content-visibility-auto ${props.className}`}
+    className={`${props.className}`}
   />);
 };
 
