@@ -26,10 +26,10 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
-      require("tailwindcss")( "./tailwind.config.js" ),
-      require("cssnano")({
-        preset: 'default',
-      }),
+      // require("tailwindcss")( "./tailwind.config.js" ),
+      // require("cssnano")({
+      //   preset: 'default',
+      // }),
     ],
   },
   {
