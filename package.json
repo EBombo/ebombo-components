@@ -32,7 +32,6 @@
     "@storybook/react": "^6.3.12",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
-    "@types/react": "^17.0.34",
     "autoprefixer": "^10.4.4",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
@@ -41,7 +40,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "postcss": "^8.4.12",
-    "react": "^17.0.2",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-postcss": "^4.0.1",
@@ -56,5 +54,10 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@types/react": "^16.14.25",
+    "react": "^17.0.2",
+    "reactn": "^2.2.7"
+  }
 }
