@@ -17,7 +17,7 @@ const Switch = (props: SwitchProps) => {
     switch (props.variant) {
       case "switcher":
         return (
-          <div className="switch" onClick={() => inputRef.current.click()}>
+          <div className="switch" onClick={() => inputRef?.current?.click()}>
             <input
               ref={inputRef}
               id="language-toggle"
@@ -35,18 +35,18 @@ const Switch = (props: SwitchProps) => {
         return (
           <div className="toggle-wrapper">
             <input
-              className="switch"
+              className="toggle-switch"
               type="checkbox"
-              id="switch"
+              id="toogle-switch"
               checked={props.checked}
               onChange={props.onChange}
             />
-            <label for="switch" className="label">Toggle</label>
+            <label htmlFor="toogle-switch" className="label" />
           </div>
         );
       default:
         return (
-          <div className="switch" onClick={() => inputRef.current.click()}>
+          <div className="switch" onClick={() => inputRef?.current?.click()}>
             <input
               ref={inputRef}
               id="language-toggle"

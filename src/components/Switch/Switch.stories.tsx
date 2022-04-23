@@ -37,7 +37,7 @@ ToggleSwitch2.args = {
 
 export const ToggleSwitch3 = Template.bind({});
 
-ToggleSwitch2.args = {
+ToggleSwitch3.args = {
   label1: "ON",
   label2: "OFF",
   onChange: (event) => {

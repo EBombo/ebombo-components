@@ -1,7 +1,8 @@
 .toggle-wrapper {
-  .switch {
-    height: 0;
-    width: 0;
+
+  .toggle-switch {
+    position: absolute;
+    margin-left: -9999px;
     visibility: hidden;
   }
 
@@ -28,11 +29,11 @@
     transition: 0.3s;
   }
 
-  .switch:checked + .label {
+  .toggle-switch:checked + .label {
     background: #32C78D;
   }
 
-  .switch:checked + .label:after {
+  .toggle-switch:checked + .label:after {
     left: calc(100% - 5px);
     transform: translateX(-100%);
   }
