@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import styled from "styled-components";
 import "./Switch.scss";
 
 export interface SwitchProps {
@@ -33,7 +34,7 @@ const Switch = (props: SwitchProps) => {
         );
       case "toggle":
         return (
-          <div className="toggle-wrapper">
+          <ToggleSwitch className="toggle-wrapper" {...props}>
             <input
               className="toggle-switch"
               type="checkbox"
@@ -42,7 +43,7 @@ const Switch = (props: SwitchProps) => {
               onChange={props.onChange}
             />
             <label htmlFor="toogle-switch" className="label" />
-          </div>
+          </ToggleSwitch>
         );
       default:
         return (
@@ -67,3 +68,77 @@ const Switch = (props: SwitchProps) => {
 };
 
 export default Switch;
+
+const ToggleSwitch = styled.div`
+  .toggle-switch {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+  }
+
+  .label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: ${(props) =>
+      props.size === "small"
+        ? "28px"
+        : props.size === "medium"
+        ? "35px"
+        : "45px"};
+    height: ${(props) =>
+      props.size === "small"
+        ? "16px"
+        : props.size === "medium"
+        ? "20px"
+        : "25px"};
+    background: #c4c4c4;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  .label:after {
+    content: "";
+    position: absolute;
+    top: ${(props) =>
+      props.size === "small"
+        ? "3px"
+        : props.size === "medium"
+        ? "4px"
+        : "5px"};
+    left: 5px;
+    width: ${(props) =>
+      props.size === "small"
+        ? "10px"
+        : props.size === "medium"
+        ? "13px"
+        : "15px"};
+    height: ${(props) =>
+      props.size === "small"
+        ? "10px"
+        : props.size === "medium"
+        ? "12px"
+        : "15px"};
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+
+  .toggle-switch:checked + .label {
+    background: #32c78d;
+  }
+
+  .toggle-switch:checked + .label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+
+  .label:active:after {
+    width: ${(props) =>
+      props.size === "small"
+        ? "15px"
+        : props.size === "medium"
+        ? "20px"
+        : "30px"};
+  }
+`;
