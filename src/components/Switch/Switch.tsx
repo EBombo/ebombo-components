@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { ChangeEvent, useRef } from "react";
 import styled from "styled-components";
 import "./Switch.scss";
 
@@ -8,11 +8,11 @@ export interface SwitchProps {
   size: string;
   variant: string;
   checked: boolean;
-  onChange: (event: Event) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Switch = (props: SwitchProps) => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const selectedInput = () => {
     switch (props.variant) {
@@ -79,13 +79,13 @@ const ToggleSwitch = styled.div`
   .label {
     cursor: pointer;
     text-indent: -9999px;
-    width: ${(props) =>
+    width: ${(props : SwitchProps) =>
       props.size === "small"
         ? "28px"
         : props.size === "medium"
         ? "35px"
         : "45px"};
-    height: ${(props) =>
+    height: ${(props : SwitchProps) =>
       props.size === "small"
         ? "16px"
         : props.size === "medium"
