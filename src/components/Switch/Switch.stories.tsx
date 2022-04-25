@@ -70,3 +70,16 @@ ToggleSwitch5.args = {
   checked: true,
   size: "medium",
 };
+
+export const ToggleSwitch6 = Template.bind({});
+
+ToggleSwitch6.args = {
+  label1: "ES",
+  label2: "EN",
+  onChange: (event) => {
+    event.preventDefault();
+  },
+  variant: "switcher",
+  checked: true,
+  size: "small",
+};

@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import "./Switch.scss";
 
 export interface SwitchProps {
   label1: string;
@@ -18,7 +17,7 @@ const Switch = (props: SwitchProps) => {
     switch (props.variant) {
       case "switcher":
         return (
-          <div className="switch" onClick={() => inputRef?.current?.click()}>
+          <Switcher onClick={() => inputRef?.current?.click()} {...props}>
             <input
               ref={inputRef}
               id="language-toggle"
@@ -30,7 +29,7 @@ const Switch = (props: SwitchProps) => {
             <label htmlFor="language-toggle" />
             <span className="on">{props.label1}</span>
             <span className="off">{props.label2}</span>
-          </div>
+          </Switcher>
         );
       case "toggle":
         return (
@@ -47,7 +46,11 @@ const Switch = (props: SwitchProps) => {
         );
       default:
         return (
-          <div className="switch" onClick={() => inputRef?.current?.click()}>
+          <Switcher
+            className="switch"
+            onClick={() => inputRef?.current?.click()}
+            {...props}
+          >
             <input
               ref={inputRef}
               id="language-toggle"
@@ -59,7 +62,7 @@ const Switch = (props: SwitchProps) => {
             <label htmlFor="language-toggle" />
             <span className="on">{props.label1}</span>
             <span className="off">{props.label2}</span>
-          </div>
+          </Switcher>
         );
     }
   };
@@ -101,11 +104,7 @@ const ToggleSwitch = styled.div`
     content: "";
     position: absolute;
     top: ${(props) =>
-      props.size === "small"
-        ? "3px"
-        : props.size === "medium"
-        ? "4px"
-        : "5px"};
+      props.size === "small" ? "3px" : props.size === "medium" ? "4px" : "5px"};
     left: 5px;
     width: ${(props) =>
       props.size === "small"
@@ -140,5 +139,89 @@ const ToggleSwitch = styled.div`
         : props.size === "medium"
         ? "20px"
         : "30px"};
+  }
+`;
+
+const Switcher = styled.div`
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+
+  .on,
+  .off {
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+    font-family: "Helvetica", Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    width: 50%;
+    text-align: center;
+    color: #382079;
+    transform: translateY(-50%);
+  }
+
+  .on {
+    left: 0;
+    padding-left: 2px;
+  }
+
+  .off {
+    right: 0;
+    padding-right: 4px;
+  }
+
+  .check-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+  }
+
+  .check-toggle + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .check-toggle-round-flat + label {
+    background-color: #56eea5;
+    padding: 2px;
+    width: ${(props) => (props.size === "small" ? "55px" : "80px")};
+    height: 25px;
+    border-radius: 60px;
+  }
+
+  label::after,
+  label::before {
+    display: block;
+    position: absolute;
+    content: "";
+  }
+
+  label::after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: ${(props) => (props.size === "small" ? "25px" : "35px")};
+    background-color: #fff;
+    border-radius: 52px;
+    transition: margin 0.2s;
+  }
+
+  label::before {
+    top: 5px;
+    right: 2px;
+    bottom: 5px;
+    left: 2px;
+    background-color: #56eea5;
+    border-radius: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .check-toggle-round-flat:checked + label:after {
+    margin-left: ${(props) => (props.size === "small" ? "25px" : "39px")};
   }
 `;
